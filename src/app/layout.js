@@ -1,20 +1,15 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Providers from "./components/Providers";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
 export const metadata = {
-  title: "Career Copilot — AI Resume & Career Coach",
+  title: "GetMeTheJob — AI Resume & Career Coach",
   description: "Upload your resume and let AI build a personalized roadmap to land your dream role.",
 };
 
@@ -22,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${outfit.variable} font-sans h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-zinc-950 text-white">
         <Providers>

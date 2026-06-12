@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/dashboard", label: "Readiness", icon: "🎯" },
   { href: "/roadmap",   label: "Roadmap",   icon: "🗺️" },
   { href: "/optimizer", label: "Optimizer", icon: "✨" },
+  { href: "/editor",    label: "Editor",    icon: "✍️" },
 ];
 
 export default function Navbar() {
@@ -27,7 +28,7 @@ export default function Navbar() {
             href="/"
             className="text-lg font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400 hover:to-white transition-all shrink-0"
           >
-            Career Copilot
+            GetMeTheJob
           </Link>
 
           {/* Nav Links */}

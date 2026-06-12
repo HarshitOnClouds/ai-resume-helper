@@ -10,7 +10,7 @@ export default function Home() {
       <main className="z-10 flex flex-col items-center text-center px-6 py-20 max-w-5xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-zinc-300 mb-8 backdrop-blur-md">
           <span className="flex w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          Career Copilot v1.0 is Live
+          GetMeTheJob v1.0 is Live
         </div>
         
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-zinc-500 drop-shadow-sm">

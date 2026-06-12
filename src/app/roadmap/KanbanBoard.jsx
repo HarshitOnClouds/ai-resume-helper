@@ -66,6 +66,22 @@ export default function KanbanBoard({ initialItems }) {
             className="w-full border border-border/60 rounded-md px-3 py-2 text-sm bg-background focus:ring-2 focus:ring-primary/20 outline-none"
           >
             <option value="Software Engineer">Software Engineer</option>
+            <option value="Frontend Engineer">Frontend Engineer</option>
+            <option value="Backend Engineer">Backend Engineer</option>
+            <option value="Mobile Developer">Mobile Developer</option>
+            <option value="QA Engineer">QA Engineer</option>
+            <option value="Data Scientist">Data Scientist</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="Data Engineer">Data Engineer</option>
+            <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+            <option value="Product Manager">Product Manager</option>
+            <option value="Product Designer">Product Designer</option>
+            <option value="UI/UX Designer">UI/UX Designer</option>
+            <option value="DevOps Engineer">DevOps Engineer</option>
+            <option value="Cybersecurity Analyst">Cybersecurity Analyst</option>
+            <option value="Business Analyst">Business Analyst</option>
+            <option value="Growth Marketer">Growth Marketer</option>
+            <option value="Sales Executive">Sales Executive</option>
           </select>
         </div>
         <div className="mt-5">

@@ -68,7 +68,7 @@ function LoginForm() {
       <div className="w-full max-w-md z-10">
         <div className="text-center mb-8">
           <Link href="/" className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-400">
-            Career Copilot
+            GetMeTheJob
           </Link>
           <p className="text-zinc-500 mt-2 text-sm">Your AI-powered career companion</p>
         </div>

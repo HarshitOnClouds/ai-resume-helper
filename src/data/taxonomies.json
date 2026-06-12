@@ -17,5 +17,263 @@
       "Team Collaboration": "medium",
       "Agile/Scrum": "low"
     }
+  },
+  "Data Scientist": {
+    "technical": {
+      "Python/R": "high",
+      "SQL": "high",
+      "Machine Learning Algorithms": "high",
+      "Data Visualization (Tableau/PowerBI)": "medium",
+      "Statistics & Probability": "high",
+      "Deep Learning (TensorFlow/PyTorch)": "low",
+      "Big Data (Spark/Hadoop)": "low"
+    },
+    "soft": {
+      "Analytical Thinking": "high",
+      "Business Acumen": "medium",
+      "Storytelling with Data": "high",
+      "Curiosity": "medium"
+    }
+  },
+  "Product Manager": {
+    "technical": {
+      "Product Strategy": "high",
+      "Agile/Scrum Methodologies": "high",
+      "Data Analytics (Mixpanel/Amplitude)": "medium",
+      "UX/UI Design Principles": "medium",
+      "A/B Testing": "medium",
+      "Market Research": "high"
+    },
+    "soft": {
+      "Stakeholder Management": "high",
+      "Cross-functional Leadership": "high",
+      "User Empathy": "high",
+      "Prioritization": "high",
+      "Communication": "high"
+    }
+  },
+  "DevOps Engineer": {
+    "technical": {
+      "CI/CD Pipelines (Jenkins/GitLab)": "high",
+      "Cloud Platforms (AWS/Azure/GCP)": "high",
+      "Infrastructure as Code (Terraform/CloudFormation)": "high",
+      "Containerization (Docker/Kubernetes)": "high",
+      "Linux Administration": "high",
+      "Scripting (Python/Bash)": "medium",
+      "Monitoring (Prometheus/Grafana)": "medium"
+    },
+    "soft": {
+      "Systematic Troubleshooting": "high",
+      "Reliability Mindset": "high",
+      "Collaboration": "medium",
+      "Attention to Detail": "high"
+    }
+  },
+  "Frontend Engineer": {
+    "technical": {
+      "HTML/CSS": "high",
+      "JavaScript/TypeScript": "high",
+      "React/Vue/Angular": "high",
+      "State Management (Redux/Zustand)": "medium",
+      "Web Performance": "medium",
+      "Responsive Design": "high",
+      "Web Accessibility (a11y)": "medium"
+    },
+    "soft": {
+      "User-Centric Thinking": "high",
+      "Attention to Detail": "high",
+      "Collaboration with Design": "high",
+      "Adaptability": "medium"
+    }
+  },
+  "Backend Engineer": {
+    "technical": {
+      "Node.js/Python/Go/Java": "high",
+      "API Design (REST/GraphQL)": "high",
+      "Database Design (SQL/NoSQL)": "high",
+      "System Architecture": "high",
+      "Microservices": "medium",
+      "Caching (Redis)": "medium",
+      "Message Queues (Kafka/RabbitMQ)": "low"
+    },
+    "soft": {
+      "Systematic Thinking": "high",
+      "Problem Solving": "high",
+      "Security Awareness": "high",
+      "Documentation": "medium"
+    }
+  },
+  "Mobile Developer": {
+    "technical": {
+      "Swift/Objective-C (iOS) or Kotlin/Java (Android)": "high",
+      "React Native/Flutter": "medium",
+      "Mobile UI/UX Standards": "high",
+      "State Management": "medium",
+      "Offline Storage/SQLite": "medium",
+      "App Store Deployment": "low"
+    },
+    "soft": {
+      "Attention to Detail": "high",
+      "User Empathy": "high",
+      "Performance Mindset": "high"
+    }
+  },
+  "Cybersecurity Analyst": {
+    "technical": {
+      "Network Security": "high",
+      "Vulnerability Assessment": "high",
+      "Penetration Testing": "medium",
+      "Incident Response": "high",
+      "Security Information and Event Management (SIEM)": "high",
+      "Cryptography": "medium"
+    },
+    "soft": {
+      "Analytical Thinking": "high",
+      "Ethical Judgment": "high",
+      "Under-pressure Decision Making": "high",
+      "Continuous Learning": "high"
+    }
+  },
+  "QA Engineer": {
+    "technical": {
+      "Test Automation (Selenium/Cypress)": "high",
+      "Manual Testing": "high",
+      "API Testing (Postman)": "high",
+      "CI/CD Integration": "medium",
+      "Performance Testing (JMeter)": "medium",
+      "Bug Tracking (Jira)": "high"
+    },
+    "soft": {
+      "Extreme Attention to Detail": "high",
+      "Clear Communication": "high",
+      "Critical Thinking": "high",
+      "Patience": "medium"
+    }
+  },
+  "Machine Learning Engineer": {
+    "technical": {
+      "Python": "high",
+      "PyTorch/TensorFlow": "high",
+      "Machine Learning Algorithms": "high",
+      "Data Preprocessing": "high",
+      "MLOps & Model Deployment": "medium",
+      "Natural Language Processing (NLP)": "medium",
+      "Computer Vision": "low"
+    },
+    "soft": {
+      "Analytical Thinking": "high",
+      "Research Mindset": "high",
+      "Problem Solving": "high"
+    }
+  },
+  "Data Analyst": {
+    "technical": {
+      "SQL": "high",
+      "Excel/Google Sheets": "high",
+      "Data Visualization (Tableau/PowerBI)": "high",
+      "Python/R (Basic)": "medium",
+      "Statistical Analysis": "medium",
+      "A/B Testing": "low"
+    },
+    "soft": {
+      "Business Acumen": "high",
+      "Storytelling with Data": "high",
+      "Communication": "high",
+      "Curiosity": "high"
+    }
+  },
+  "Data Engineer": {
+    "technical": {
+      "Python/Scala/Java": "high",
+      "SQL & Data Modeling": "high",
+      "ETL/ELT Pipelines": "high",
+      "Big Data Tools (Spark/Hadoop)": "high",
+      "Cloud Data Warehouses (Snowflake/BigQuery)": "high",
+      "Orchestration (Airflow)": "medium"
+    },
+    "soft": {
+      "Systematic Thinking": "high",
+      "Problem Solving": "high",
+      "Attention to Detail": "high"
+    }
+  },
+  "UI/UX Designer": {
+    "technical": {
+      "Figma/Sketch/Adobe XD": "high",
+      "Wireframing & Prototyping": "high",
+      "User Research & Testing": "high",
+      "Information Architecture": "high",
+      "Interaction Design": "medium",
+      "Basic HTML/CSS": "low"
+    },
+    "soft": {
+      "Empathy": "high",
+      "Creative Problem Solving": "high",
+      "Receptiveness to Feedback": "high",
+      "Communication": "high"
+    }
+  },
+  "Product Designer": {
+    "technical": {
+      "End-to-End Product Design": "high",
+      "Design Systems": "high",
+      "Figma": "high",
+      "Prototyping": "high",
+      "User Research": "medium",
+      "Data-Driven Design": "medium"
+    },
+    "soft": {
+      "Strategic Thinking": "high",
+      "Cross-functional Collaboration": "high",
+      "Business Acumen": "medium",
+      "Empathy": "high"
+    }
+  },
+  "Business Analyst": {
+    "technical": {
+      "Requirements Gathering": "high",
+      "Process Mapping": "high",
+      "SQL": "medium",
+      "Excel": "high",
+      "Agile/Scrum": "medium",
+      "Data Visualization": "low"
+    },
+    "soft": {
+      "Stakeholder Management": "high",
+      "Excellent Communication": "high",
+      "Analytical Thinking": "high",
+      "Negotiation": "medium"
+    }
+  },
+  "Growth Marketer": {
+    "technical": {
+      "SEO/SEM": "high",
+      "Paid Advertising (Google/Meta Ads)": "high",
+      "Data Analytics (Google Analytics)": "high",
+      "A/B Testing": "high",
+      "Email Marketing": "medium",
+      "Conversion Rate Optimization (CRO)": "high"
+    },
+    "soft": {
+      "Data-Driven Decision Making": "high",
+      "Creativity": "high",
+      "Agility": "high",
+      "Customer Empathy": "medium"
+    }
+  },
+  "Sales Executive": {
+    "technical": {
+      "CRM Software (Salesforce/HubSpot)": "high",
+      "Lead Generation Tools": "medium",
+      "Sales Pipeline Management": "high",
+      "Data Entry & Tracking": "high"
+    },
+    "soft": {
+      "Persuasion & Negotiation": "high",
+      "Active Listening": "high",
+      "Resilience": "high",
+      "Relationship Building": "high",
+      "Clear Communication": "high"
+    }
   }
 }

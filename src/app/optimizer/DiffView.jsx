@@ -1,154 +1,4 @@
-"use client";
-
-import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-
-// ─── PDF Styles ──────────────────────────────────────────────────────────────
-const s = StyleSheet.create({
-  page: { padding: 40, fontFamily: "Helvetica", fontSize: 10, color: "#1a1a1a", lineHeight: 1.4 },
-  name: { fontSize: 20, fontFamily: "Helvetica-Bold", marginBottom: 6 },
-  contactRow: { fontSize: 9, color: "#555", marginBottom: 8, flexDirection: "row", gap: 12 },
-  sectionTitle: { fontSize: 11, fontFamily: "Helvetica-Bold", textTransform: "uppercase", letterSpacing: 1, borderBottomWidth: 1, borderBottomColor: "#ccc", paddingBottom: 2, marginTop: 10, marginBottom: 6 },
-  entryTitle: { fontFamily: "Helvetica-Bold", fontSize: 10 },
-  entryMeta: { fontSize: 9, color: "#555", marginBottom: 2 },
-  bullet: { marginLeft: 10, marginBottom: 2 },
-  skillRow: { flexDirection: "row", flexWrap: "wrap", gap: 4 },
-  skillChip: { fontSize: 9, backgroundColor: "#f0f0f0", paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4 },
-});
-
-// ─── Apply optimizations: replace originalText → suggestedText in a string ───
-function applyOptimizations(text, optimizations) {
-  if (!text || !optimizations?.length) return text;
-  let result = text;
-  for (const opt of optimizations) {
-    if (opt.originalText && opt.suggestedText) {
-      result = result.replace(opt.originalText, opt.suggestedText);
-    }
-  }
-  return result;
-}
-
-// ─── Split a description string into individual bullet lines ─────────────────
-function splitBullets(text) {
-  if (!text) return [];
-  
-  // First, check for explicit newlines or bullet/dash markers
-  let lines = text
-    .split(/\n|(?=\s*[•\-\*]\s)/)
-    .map((l) => l.replace(/^[\s•\-\*]+/, "").trim())
-    .filter(Boolean);
-    
-  // If the parser squashed it all into one line and it's long, 
-  // forcefully split it by sentence-ending punctuation.
-  if (lines.length <= 1 && text.length > 50) {
-    lines = text
-      // Split after a period, exclamation mark, question mark, or semicolon
-      // that is followed by a space or the end of the string.
-      .split(/(?<=[.?!;])\s+/)
-      .map(l => l.trim())
-      .filter(Boolean);
-  }
-  
-  return lines.length ? lines : [text.trim()];
-}
-
-// ─── Full Resume PDF Document ─────────────────────────────────────────────────
-function ResumePDF({ profile, optimizations }) {
-  const opts = optimizations || [];
-  const apply = (text) => applyOptimizations(text, opts);
-
-  return (
-    <Document>
-      <Page size="A4" style={s.page}>
-        {/* Header */}
-        <Text style={s.name}>{profile?.name || "Your Name"}</Text>
-        <View style={s.contactRow}>
-          {profile?.email && <Text>{profile.email}</Text>}
-        </View>
-
-        {/* Education */}
-        {profile?.education?.length > 0 && (
-          <View>
-            <Text style={s.sectionTitle}>Education</Text>
-            {profile.education.map((edu, i) => (
-              <View key={i} style={{ marginBottom: 6 }}>
-                <Text style={s.entryTitle}>{edu.degree}{edu.fieldOfStudy ? ` in ${edu.fieldOfStudy}` : ""}</Text>
-                <Text style={s.entryMeta}>{edu.institution}{edu.startDate ? ` · ${edu.startDate}${edu.endDate ? ` – ${edu.endDate}` : ""}` : ""}</Text>
-              </View>
-            ))}
-          </View>
-        )}
-
-        {/* Skills */}
-        {profile?.skills?.length > 0 && (
-          <View>
-            <Text style={s.sectionTitle}>Skills</Text>
-            <View style={s.skillRow}>
-              {profile.skills.map((skill, i) => (
-                <Text key={i} style={s.skillChip}>{skill}</Text>
-              ))}
-            </View>
-          </View>
-        )}
-
-        {/* Experience */}
-        {profile?.experience?.length > 0 && (
-          <View>
-            <Text style={s.sectionTitle}>Experience</Text>
-            {profile.experience.map((exp, i) => (
-              <View key={i} style={{ marginBottom: 8 }}>
-                <Text style={s.entryTitle}>{exp.role} — {exp.company}</Text>
-                <Text style={s.entryMeta}>{exp.startDate || ""}{exp.endDate ? ` – ${exp.endDate}` : ""}</Text>
-                {splitBullets(apply(exp.description || "")).map((line, j) => (
-                  <Text key={j} style={s.bullet}>• {line}</Text>
-                ))}
-              </View>
-            ))}
-          </View>
-        )}
-
-        {/* Projects */}
-        {profile?.projects?.length > 0 && (
-          <View>
-            <Text style={s.sectionTitle}>Projects</Text>
-            {profile.projects.map((proj, i) => (
-              <View key={i} style={{ marginBottom: 8 }}>
-                <Text style={s.entryTitle}>{proj.name}</Text>
-                {proj.technologies?.length > 0 && (
-                  <Text style={s.entryMeta}>{proj.technologies.join(", ")}</Text>
-                )}
-                {splitBullets(apply(proj.description || "")).map((line, j) => (
-                  <Text key={j} style={s.bullet}>• {line}</Text>
-                ))}
-              </View>
-            ))}
-          </View>
-        )}
-
-        {/* Certifications */}
-        {profile?.certifications?.length > 0 && (
-          <View>
-            <Text style={s.sectionTitle}>Certifications</Text>
-            {profile.certifications.map((cert, i) => (
-              <Text key={i} style={s.bullet}>• {cert}</Text>
-            ))}
-          </View>
-        )}
-
-        {/* Achievements */}
-        {profile?.achievements?.length > 0 && (
-          <View>
-            <Text style={s.sectionTitle}>Achievements</Text>
-            {profile.achievements.map((ach, i) => (
-              <Text key={i} style={s.bullet}>• {ach}</Text>
-            ))}
-          </View>
-        )}
-      </Page>
-    </Document>
-  );
-}
-
-// ─── Main DiffView Component ─────────────────────────────────────────────────
+import Link from "next/link";
 export default function DiffView({ data, profile }) {
   if (!data) return null;
 
@@ -164,13 +14,14 @@ export default function DiffView({ data, profile }) {
       {/* Header row */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-card border border-border/50 p-5 rounded-xl shadow-sm">
         <h2 className="text-xl font-bold">Optimization Results</h2>
-        <PDFDownloadLink
-          document={<ResumePDF profile={pdfProfile} optimizations={data.optimizations} />}
-          fileName="optimized-resume.pdf"
-          className="bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors shadow-sm"
-        >
-          {({ loading }) => (loading ? "Generating PDF…" : "⬇ Download Full Resume PDF")}
-        </PDFDownloadLink>
+        <div className="flex items-center gap-3">
+          <Link 
+            href="/editor" 
+            className="bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors shadow-sm"
+          >
+            ✍️ Open in Editor
+          </Link>
+        </div>
       </div>
 
       {/* ATS Score + Issues */}

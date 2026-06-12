@@ -81,6 +81,7 @@ model Profile {
   education      Json     // Array of education objects
   certifications Json     // Array of cert objects
   achievements   Json     // Array of achievements
+  contactInfo    Json?    @default("{}") // Store phone, github, linkedin, etc.
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
