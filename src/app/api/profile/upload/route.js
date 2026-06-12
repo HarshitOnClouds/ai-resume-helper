@@ -41,8 +41,19 @@ const profileSchema = z.object({
 });
 
 async function extractTextFromPDF(buffer) {
-  const { text } = await extractText(new Uint8Array(buffer));
-  return text;
+  const { getDocumentProxy, extractText } = await import("unpdf");
+  
+  // Load the PDF into memory
+  const pdf = await getDocumentProxy(new Uint8Array(buffer));
+  
+  // Extract text pages
+  const { text } = await extractText(pdf);
+  
+  // CRITICAL: Clean up memory to prevent leaks on Vercel/Railway
+  pdf.destroy();
+  
+  // unpdf returns text as an array of strings (one per page). Join them.
+  return Array.isArray(text) ? text.join("\n") : (text || "");
 }
 
 export async function POST(req) {
