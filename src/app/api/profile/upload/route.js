@@ -5,9 +5,11 @@ import { prisma } from "@/lib/prisma";
 import mammoth from "mammoth";
 import Groq from "groq-sdk";
 import { z } from "zod";
-import { extractText } from "unpdf";
+import { getDocumentProxy, extractText } from "unpdf";
 
 export const runtime = "nodejs";
+
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const profileSchema = z.object({
   skills: z.array(z.string()),
@@ -41,8 +43,6 @@ const profileSchema = z.object({
 });
 
 async function extractTextFromPDF(buffer) {
-  const { getDocumentProxy, extractText } = await import("unpdf");
-  
   // Load the PDF into memory
   const pdf = await getDocumentProxy(new Uint8Array(buffer));
   
