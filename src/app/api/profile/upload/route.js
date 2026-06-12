@@ -5,16 +5,9 @@ import { prisma } from "@/lib/prisma";
 import mammoth from "mammoth";
 import Groq from "groq-sdk";
 import { z } from "zod";
+import { extractText } from "unpdf";
 
 export const runtime = "nodejs";
-
-// --- POLYFILLS FOR PDF-PARSE (PDF.JS) IN NODE.JS/VERCEL ---
-// These must exist at the top-level scope before pdf-parse is imported
-if (typeof globalThis.DOMMatrix === "undefined") globalThis.DOMMatrix = class DOMMatrix {};
-if (typeof globalThis.Path2D === "undefined") globalThis.Path2D = class Path2D {};
-if (typeof globalThis.ImageData === "undefined") globalThis.ImageData = class ImageData {};
-
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const profileSchema = z.object({
   skills: z.array(z.string()),
@@ -48,14 +41,8 @@ const profileSchema = z.object({
 });
 
 async function extractTextFromPDF(buffer) {
-  // Use pdf-parse in Node.js runtime instead of pdfjs-dist to avoid DOM dependencies
-  const pdfParse = await import("pdf-parse");
-  
-  // Ensure we get the correct exported function (Turbopack sometimes double-wraps default exports)
-  const parseFunc = pdfParse.default?.default || pdfParse.default || pdfParse;
-  
-  const data = await parseFunc(buffer);
-  return data.text;
+  const { text } = await extractText(buffer);
+  return text;
 }
 
 export async function POST(req) {
