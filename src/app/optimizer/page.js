@@ -58,9 +58,11 @@ export default async function OptimizerPage() {
   const session = await getServerSession(authOptions);
   if (!session || !session.user) redirect("/api/auth/signin");
 
-  const profile = await prisma.profile.findUnique({
+  const profileData = await prisma.profile.findUnique({
     where: { userId: session.user.id }
   });
+
+  const profile = profileData ? { ...profileData, name: session.user.name, email: session.user.email } : null;
 
   if (!profile) {
     return (
@@ -101,7 +103,7 @@ export default async function OptimizerPage() {
         </div>
       </div>
 
-      <OptimizerForm resumeText={resumeText} />
+      <OptimizerForm resumeText={resumeText} profile={profile} />
     </div>
   );
 }

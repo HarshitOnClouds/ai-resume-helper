@@ -28,7 +28,7 @@ function timeAgo(isoString) {
   return `${Math.floor(diff / 86400)}d ago`;
 }
 
-export default function OptimizerForm({ resumeText }) {
+export default function OptimizerForm({ resumeText, profile }) {
   const [mode, setMode] = useState("jd");
   const [jobDescription, setJobDescription] = useState("");
   const [loading, setLoading] = useState(false);
@@ -211,7 +211,7 @@ export default function OptimizerForm({ resumeText }) {
         </div>
       </form>
 
-      {result && <DiffView data={result} />}
+      {result && <DiffView data={result} profile={profile} />}
     </div>
   );
 }

@@ -11,7 +11,7 @@ const optimizationSchema = z.object({
   atsIssues: z.array(z.string()),
   optimizations: z.array(
     z.object({
-      section: z.enum(["experience", "projects", "skills", "summary"]),
+      section: z.string(), // Allow any section: experience, projects, skills, education, certifications, etc.
       originalText: z.string(),
       suggestedText: z.string(),
       reasoning: z.string()
