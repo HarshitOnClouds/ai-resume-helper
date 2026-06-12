@@ -8,6 +8,12 @@ import { z } from "zod";
 
 export const runtime = "nodejs";
 
+// --- POLYFILLS FOR PDF-PARSE (PDF.JS) IN NODE.JS/VERCEL ---
+// These must exist at the top-level scope before pdf-parse is imported
+if (typeof globalThis.DOMMatrix === "undefined") globalThis.DOMMatrix = class DOMMatrix {};
+if (typeof globalThis.Path2D === "undefined") globalThis.Path2D = class Path2D {};
+if (typeof globalThis.ImageData === "undefined") globalThis.ImageData = class ImageData {};
+
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const profileSchema = z.object({
@@ -42,11 +48,6 @@ const profileSchema = z.object({
 });
 
 async function extractTextFromPDF(buffer) {
-  // Polyfill DOMMatrix for Vercel/Node.js environments to prevent pdf.js ReferenceErrors
-  if (typeof globalThis.DOMMatrix === "undefined") {
-    globalThis.DOMMatrix = class DOMMatrix {};
-  }
-
   // Use pdf-parse in Node.js runtime instead of pdfjs-dist to avoid DOM dependencies
   const pdfParse = await import("pdf-parse");
   
