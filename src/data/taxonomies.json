@@ -1,0 +1,21 @@
+{
+  "Software Engineer": {
+    "technical": {
+      "JavaScript/TypeScript": "high",
+      "React/Next.js": "high",
+      "Node.js/Express": "medium",
+      "SQL/PostgreSQL": "medium",
+      "Git/Version Control": "high",
+      "REST APIs": "high",
+      "Data Structures & Algorithms": "high",
+      "Testing (Jest/Cypress)": "medium",
+      "Docker/Containers": "low"
+    },
+    "soft": {
+      "Communication": "high",
+      "Problem Solving": "high",
+      "Team Collaboration": "medium",
+      "Agile/Scrum": "low"
+    }
+  }
+}
