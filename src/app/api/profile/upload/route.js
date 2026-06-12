@@ -43,7 +43,7 @@ const profileSchema = z.object({
 
 async function extractTextFromPDF(buffer) {
   // Use pdf-parse in Node.js runtime instead of pdfjs-dist to avoid DOM dependencies
-  const pdfParse = (await import("pdf-parse/lib/pdf-parse.js")).default || await import("pdf-parse");
+  const pdfParse = await import("pdf-parse");
   
   // Ensure we get the correct exported function
   const parseFunc = pdfParse.default || pdfParse;
