@@ -42,6 +42,11 @@ const profileSchema = z.object({
 });
 
 async function extractTextFromPDF(buffer) {
+  // Polyfill DOMMatrix for Vercel/Node.js environments to prevent pdf.js ReferenceErrors
+  if (typeof globalThis.DOMMatrix === "undefined") {
+    globalThis.DOMMatrix = class DOMMatrix {};
+  }
+
   // Use pdf-parse in Node.js runtime instead of pdfjs-dist to avoid DOM dependencies
   const pdfParse = await import("pdf-parse");
   
