@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: true,
-  serverExternalPackages: ["mammoth", "pdfjs-dist"],
+  serverExternalPackages: ["mammoth", "pdf-parse"],
 };
 
 export default nextConfig;

@@ -42,22 +42,14 @@ const profileSchema = z.object({
 });
 
 async function extractTextFromPDF(buffer) {
-  // Dynamically import pdfjs-dist to avoid bundler issues
-  const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf.mjs");
+  // Use pdf-parse in Node.js runtime instead of pdfjs-dist to avoid DOM dependencies
+  const pdfParse = (await import("pdf-parse/lib/pdf-parse.js")).default || await import("pdf-parse");
   
-  const uint8Array = new Uint8Array(buffer);
-  const loadingTask = pdfjsLib.getDocument({ data: uint8Array });
-  const pdf = await loadingTask.promise;
-
-  let fullText = "";
-  for (let i = 1; i <= pdf.numPages; i++) {
-    const page = await pdf.getPage(i);
-    const textContent = await page.getTextContent();
-    const pageText = textContent.items.map((item) => item.str).join(" ");
-    fullText += pageText + "\n";
-  }
-
-  return fullText;
+  // Ensure we get the correct exported function
+  const parseFunc = pdfParse.default || pdfParse;
+  
+  const data = await parseFunc(buffer);
+  return data.text;
 }
 
 export async function POST(req) {
