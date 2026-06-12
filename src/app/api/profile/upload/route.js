@@ -41,7 +41,7 @@ const profileSchema = z.object({
 });
 
 async function extractTextFromPDF(buffer) {
-  const { text } = await extractText(buffer);
+  const { text } = await extractText(new Uint8Array(buffer));
   return text;
 }
 
