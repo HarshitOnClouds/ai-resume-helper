@@ -4,6 +4,9 @@
 
 Instead of being a one-shot resume checker, GetMeTheJob acts as a persistent platform where users can parse their resumes, evaluate their skill readiness against industry-standard taxonomies, generate personalized learning roadmaps, and optimize their resumes line-by-line for ATS compatibility.
 
+## 📊 Project Presentation
+You can view the full architecture and concept details in the included [presentation.pdf](./presentation.pdf) file.
+
 ## ✨ Features
 
 - **📄 AI Resume Parsing:** Upload a PDF/DOCX resume and extract structured profile data using Groq's blazing-fast LLM APIs.
@@ -20,7 +23,7 @@ Instead of being a one-shot resume checker, GetMeTheJob acts as a persistent pla
 - **Authentication:** NextAuth (Auth.js)
 - **AI / LLM:** Groq API (Powered by OSS model :`gpt-oss-120b`)
 - **PDF Generation:** `@react-pdf/renderer`
-- **File Parsing:** `pdfjs-dist` & `mammoth`
+- **File Parsing:** `unpdf` & `mammoth`
 
 ## 🚀 Getting Started
 
