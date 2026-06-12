@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GetMeTheJob 🚀
 
-## Getting Started
+**GetMeTheJob** is an AI-powered career operating system designed to help early-career professionals and students land their dream roles. 
 
-First, run the development server:
+Instead of being a one-shot resume checker, GetMeTheJob acts as a persistent platform where users can parse their resumes, evaluate their skill readiness against industry-standard taxonomies, generate personalized learning roadmaps, and optimize their resumes line-by-line for ATS compatibility.
 
+## ✨ Features
+
+- **📄 AI Resume Parsing:** Upload a PDF/DOCX resume and extract structured profile data using Groq's blazing-fast LLM APIs.
+- **🎯 Job Readiness Engine:** Compare your current skill profile against 17+ different tech and business roles (Software Engineer, Product Manager, Data Scientist, etc.). Receive a fit score and detailed skill gap analysis.
+- **🗺️ Personalized AI Roadmaps:** Generate a tailored Kanban-style roadmap (Pending, In Progress, Done) containing actionable steps to bridge your skill gaps.
+- **✨ AI Resume Optimizer:** Paste your target Job Description (JD) and let the AI rewrite weak bullet points into impactful, metrics-driven statements. 
+- **✍️ Live Resume Editor & PDF Export:** Review AI suggestions in a clean Diff view, apply them, and open a live WYSIWYG editor. Add a profile photo, tweak the layout, and instantly export a beautiful, recruiter-ready PDF.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js 16 (App Router), React, Tailwind CSS, shadcn/ui
+- **Backend:** Next.js Server Actions & API Routes
+- **Database:** PostgreSQL managed via Prisma ORM
+- **Authentication:** NextAuth (Auth.js)
+- **AI / LLM:** Groq API (Powered by OSS model :`gpt-oss-120b`)
+- **PDF Generation:** `@react-pdf/renderer`
+- **File Parsing:** `pdfjs-dist` & `mammoth`
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18.17 or later
+- A PostgreSQL database (e.g., NeonDB, Supabase, Railway)
+- API Keys for Groq
+
+### 1. Clone & Install
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/getmethejob.git
+cd getmethejob
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Set Up Environment Variables
+Create a `.env` file in the root directory and add the following keys:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```env
+# Database
+DATABASE_URL="postgresql://user:password@host/db"
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Authentication (NextAuth)
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-super-secret-key" # Generate via: openssl rand -base64 32
 
-## Learn More
+# AI Inference
+GROQ_API_KEY="gsk_your_groq_api_key_here"
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Initialize Database
+Push the Prisma schema to your PostgreSQL database:
+```bash
+npx prisma db push
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Run the Development Server
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the app running!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📜 License
+All rights reserved
